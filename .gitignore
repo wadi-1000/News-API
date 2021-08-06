@@ -1,0 +1,5 @@
+virtual/
+venv/
+virtual-environment/
+*.pyc
+secret/
