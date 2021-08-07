@@ -1,5 +1,5 @@
 from app import app
-from urllib.request,json
+import urllib.request,json
 from .models import sources
 
 Sources = sources.Sources
@@ -10,14 +10,14 @@ api_key = app.config['NEWS_API_KEY']
 
 
 # Getting base url
-base_url = app.config["NEWS_API_BASE_URL"]
+base_url = app.config['NEWS_API_BASE_URL']
 
 
-def get_news(sources):
+def get_news():
     '''
     Function that gets json response to our url request
     '''
-    get_news_url = base_url.format(sources, api_key)
+    get_news_url = base_url.format(api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -32,7 +32,7 @@ def get_news(sources):
     return news_results
 
 
-def process_results(news_list)
+def process_results(news_list):
     '''
     Function that processes the news result and transform them to a list of objects
 
@@ -52,9 +52,7 @@ def process_results(news_list)
         language = news_item.get('language')
         country = news_item.get('country')
         urlsToLogos = news_item.get('small')
-
-        if urlsToLogos:
-            news_object = Sources(id,name,description,url,category,language,country,urlsToLogos)
-            news_results.append(news_object)
-
+        sources_object =Sources(id, name,description,url,category,language,country,urlsToLogos)
+        news_results.append(sources_object)
+        
     return news_results
