@@ -1,0 +1,11 @@
+{% macro displaySourcesList(news_list) %}
+
+    {% for source in news_list %}
+        <strong><li>{{sources.name}}</li></strong>
+        <p><em>{{sources.description}}</em></p>
+        <p> news category: {{sources.category}}</p>
+        <a href="{{sources.url}}">Link</a>
+        <br><br>
+    {% endfor %}
+
+{% endmacro %}
