@@ -9,7 +9,20 @@
         {% endif %}
     </head>
     <body>
-    <h1> Welcome to News Dr.</h1>
-    <h6>Home to all quality news.</h6>
+        <h1> Welcome to News Dr.</h1>
+        <h4>Home to all quality news.</h4>
+        <hr>
+             <!-- News Sources section -->
+            <h2>Our News Sources</h2>
+            <ul>
+                {% for sources in sources %}
+                    <strong><li>{{sources.name}}</li></strong>
+                    <p><em>{{sources.description}}</em></p>
+                    <p> news category: {{sources.category}}</p>
+                    <a href="{{sources.url}}">Link</a>
+                    <br><br>
+                    
+                {% endfor %}
+            </ul>
     </body>
 </html>
