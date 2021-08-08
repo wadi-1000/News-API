@@ -1,27 +1,24 @@
+<div class="container">
 {% extends 'base.html' %}
 {% import 'macros.html' as macro%}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{title}} </title>
-        {% else %}
-        <title> News Dr. </title>
-        {% endif %}
-    </head>
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
         <!-- Content block -->
         {% block content %}
-        <h1> Welcome to News Dr.</h1>
-        <h4>Home to all quality news.</h4>
-        <hr>
+       
              <!-- News Sources section -->
-            <h2>Our News Sources</h2>
-            <ul>
+             <div class="container_fluid">
+            <h2 id="tt">Our News Sources</h2>
+            <ul id="sources">
                {{ macro.displaySourcesList(sources)}}
                 
             </ul>
+            </div>
         {% endblock %}
-</html>
+</div>
