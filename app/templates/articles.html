@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!-- Content block -->
+{% block content %}
+
+
+{% for articles in articles_list %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+            <h3>{{ articles.title }}</h3> by <h5>{{articles.author}}</h5>
+            <p class="source"> {{ articles.source }}</p>
+            <p class="publishedAt"> {{ articles.publishedAt }}|date</p>
+            <p class="description"> {{ articles.description }}</p>
+            <a href="{{articles.url}}">Read More</a>
+        
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}
