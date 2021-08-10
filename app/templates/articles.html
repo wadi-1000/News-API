@@ -2,18 +2,34 @@
 
 <!-- Content block -->
 {% block content %}
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-free-5.15.1/css/all.css">
+    <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
+{% endblock %}
 
-
-{% for articles in articles_list %}
+<h2 id="vv">Results</h2>
+{% for article in articles %}
 <div class="container">
-    <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-            <h3>{{ articles.title }}</h3> by <h5>{{articles.author}}</h5>
-            <p class="source"> {{ articles.source }}</p>
-            <p class="publishedAt"> {{ articles.publishedAt }}|date</p>
-            <p class="description"> {{ articles.description }}</p>
-            <a href="{{articles.url}}">Read More</a>
-        
+    <div class="row" id="at1">
+        <div class="column" id="at2">
+            <div class="card" id="at3" >
+        <img src="{{article.urlToImage}}" width="70%" height="70%">
+        </div>
+        </div>
+        <div class="column" id="at2">
+            <div class="card" id="at3">
+            <h3>{{ article.title }}</h3> 
+            <h5>Written by: {{article.author}}</h5>
+            <p class="source">news source: {{ article.source }}</p>
+            <p class="publishedAt">published at: {{ article.publishedAt }}</p>
+            <a href="{{article.url}}">Read More</a>
+            
+        </div>
         </div>
     </div>
 

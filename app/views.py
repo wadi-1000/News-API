@@ -22,7 +22,7 @@ def index():
     else:
         return render_template('index.html', title = title, sources=sources)
 
-@app.route('/article/<int:id>')
+@app.route('/article/<id>')
 def articles(id):
     '''
     View function that returns the article details page and its data
@@ -32,7 +32,7 @@ def articles(id):
 
     return render_template('articles.html',  id = id, articles = articles)
 
-@app.route('/search/<source_name>')
+@app.route('/article/<source_name>')
 def search(source_name):
     '''
     View function to display the search results

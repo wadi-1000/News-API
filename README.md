@@ -16,7 +16,7 @@ My project of a web application that delivers news.
 
 ### Known Bugs
 
--  The known bugs are the api's for both articles and searching is not working.
+-  No known bugs so far.
 
 ### Behavoiur Driven Development
 
